@@ -26,8 +26,7 @@ either = "1"
 http-body-util = "0.1"
 hyper = { version = "1", features = ["client"] }
 hyper-rustls = { version = "0.27", default-features = false, features = [
-  "webpki-roots",
-  "webpki-tokio",
+  "native-tokio",
   "ring",
 ] }
 hyper-util = "0.1"
@@ -49,10 +48,11 @@ rustls = { version = "0.23", default-features = false, features = [
   "tls12",
   "ring",
 ] }
+rustls-native-certs = "0.8"
 ryu = "1"
 tokio = "1"
 tracing = "0.1"
-webpki-roots = "0.26"
+webpki-roots = "1"
 tower-service = "0.3"
 quick_cache = "0.6"
 

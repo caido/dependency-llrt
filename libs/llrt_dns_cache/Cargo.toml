@@ -14,8 +14,7 @@ path = "src/lib.rs"
 [dependencies]
 hyper = { version = "1", features = ["client"] }
 hyper-rustls = { version = "0.27", default-features = false, features = [
-  "webpki-roots",
-  "webpki-tokio",
+  "native-tokio",
   "ring",
 ] }
 hyper-util = "0.1"
