@@ -89,6 +89,16 @@ static TLS_CONFIG: Lazy<io::Result<ClientConfig>> = Lazy::new(|| {
         root_certificates.roots.push(cert)
     }
 
+    let load_results = rustls_native_certs::load_native_certs();
+    for cert in load_results.certs {
+        // Continue on parsing errors, as native stores often include ancient or syntactically
+        // invalid certificates, like root certificates without any X509 extensions.
+        // Inspiration: https://github.com/rustls/rustls/blob/633bf4ba9d9521a95f68766d04c22e2b01e68318/rustls/src/anchors.rs#L105-L112
+        if let Err(err) = root_certificates.add(cert) {
+            tracing::debug!("rustls failed to parse DER certificate: {err:?}");
+        }
+    }
+
     if let Some(extra_ca_certs) = get_extra_ca_certs() {
         root_certificates.add_parsable_certificates(extra_ca_certs);
     }
