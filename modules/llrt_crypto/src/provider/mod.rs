@@ -36,7 +36,6 @@ mod ring;
     feature = "crypto-rust",
     feature = "crypto-ring-rust",
     feature = "crypto-graviola-rust",
-    feature = "crypto-openssl"
 ))]
 mod rust;
 

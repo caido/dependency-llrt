@@ -1911,7 +1911,6 @@ dependencies = [
  "md-5",
  "once_cell",
  "openssl",
- "openssl-sys",
  "p256",
  "p384",
  "p521",

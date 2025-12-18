@@ -18,10 +18,10 @@ tls-graviola = ["llrt_http?/tls-graviola", "llrt_tls?/tls-graviola", "llrt_fetch
 tls-openssl = ["llrt_http?/tls-openssl", "llrt_tls?/tls-openssl"]
 
 # Crypto provider features
-crypto-rust = ["llrt_crypto?/crypto-rust"]
-crypto-ring-rust = ["llrt_crypto?/crypto-ring-rust"]
-crypto-graviola-rust = ["llrt_crypto?/crypto-graviola-rust"]
-crypto-openssl = ["llrt_crypto?/crypto-openssl"]
+crypto-rust = ["llrt_crypto/crypto-rust"]
+crypto-ring-rust = ["llrt_crypto/crypto-ring-rust"]
+crypto-graviola-rust = ["llrt_crypto/crypto-graviola-rust"]
+crypto-openssl = ["llrt_crypto/crypto-openssl"]
 
 # OpenSSL vendored (builds OpenSSL from source)
 openssl-vendored = ["llrt_http?/openssl-vendored", "llrt_crypto?/openssl-vendored"]

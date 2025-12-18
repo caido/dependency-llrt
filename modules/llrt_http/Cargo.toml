@@ -21,8 +21,18 @@ webpki-roots = ["llrt_tls/webpki-roots"]
 native-roots = ["llrt_tls/native-roots"]
 
 # TLS crypto backend features (rustls-based)
-tls-ring = ["llrt_tls/tls-ring", "dep:hyper-rustls", "hyper-rustls?/ring", "dep:rustls"]
-tls-aws-lc = ["llrt_tls/tls-aws-lc", "dep:hyper-rustls", "hyper-rustls?/aws-lc-rs", "dep:rustls"]
+tls-ring = [
+  "llrt_tls/tls-ring",
+  "dep:hyper-rustls",
+  "hyper-rustls/ring",
+  "dep:rustls",
+]
+tls-aws-lc = [
+  "llrt_tls/tls-aws-lc",
+  "dep:hyper-rustls",
+  "hyper-rustls?/aws-lc-rs",
+  "dep:rustls",
+]
 tls-graviola = ["llrt_tls/tls-graviola", "dep:hyper-rustls", "dep:rustls"]
 
 # OpenSSL TLS backend
@@ -33,9 +43,14 @@ openssl-vendored = ["llrt_tls/openssl-vendored", "openssl?/vendored"]
 bytes = { version = "1", default-features = false }
 http-body-util = { version = "0.1", default-features = false }
 hyper = { version = "1", features = ["client"], default-features = false }
-hyper-util = { version = "0.1", features = ["client-legacy", "tokio"], default-features = false }
+hyper-util = { version = "0.1", features = [
+  "client-legacy",
+  "tokio",
+], default-features = false }
 hyper-rustls = { version = "0.27", default-features = false, optional = true }
-hyper-openssl = { version = "0.10", features = ["client-legacy"], optional = true }
+hyper-openssl = { version = "0.10", features = [
+  "client-legacy",
+], optional = true }
 openssl = { version = "0.10", optional = true }
 llrt_dns_cache = { version = "0.7.0-beta", path = "../../libs/llrt_dns_cache" }
 llrt_tls = { version = "0.7.0-beta", default-features = false, path = "../llrt_tls" }
