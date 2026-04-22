@@ -922,19 +922,28 @@ fn import_ec_key<'js>(
                 let x = decode_to_curve::<p256::NistP256>(ctx, x)?;
                 let y = decode_to_curve::<p256::NistP256>(ctx, y)?;
 
-                p256::EncodedPoint::from_affine_coordinates(&x, &y, false).to_bytes()
+                elliptic_curve::sec1::EncodedPoint::<p256::NistP256>::from_affine_coordinates(
+                    &x, &y, false,
+                )
+                .to_bytes()
             },
             EllipticCurve::P384 => {
                 let x = decode_to_curve::<p384::NistP384>(ctx, x)?;
                 let y = decode_to_curve::<p384::NistP384>(ctx, y)?;
 
-                p384::EncodedPoint::from_affine_coordinates(&x, &y, false).to_bytes()
+                elliptic_curve::sec1::EncodedPoint::<p384::NistP384>::from_affine_coordinates(
+                    &x, &y, false,
+                )
+                .to_bytes()
             },
             EllipticCurve::P521 => {
                 let x = decode_to_curve::<p521::NistP521>(ctx, x)?;
                 let y = decode_to_curve::<p521::NistP521>(ctx, y)?;
 
-                p521::EncodedPoint::from_affine_coordinates(&x, &y, false).to_bytes()
+                elliptic_curve::sec1::EncodedPoint::<p521::NistP521>::from_affine_coordinates(
+                    &x, &y, false,
+                )
+                .to_bytes()
             },
         };
 

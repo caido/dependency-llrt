@@ -5,7 +5,7 @@ use der::{
     Decode, Encode, SecretDocument,
 };
 use elliptic_curve::{
-    sec1::{FromEncodedPoint, ModulusSize, ToEncodedPoint},
+    sec1::{FromEncodedPoint, ModulusSize, ToEncodedPoint, ToSec1Point},
     AffinePoint, CurveArithmetic, FieldBytesSize,
 };
 use llrt_encoding::bytes_to_b64_url_safe_string;
